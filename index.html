@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cloudzz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d0e7f9, #f9d0f9, #e0d0f9);
+      color: #333;
+    }
+    header {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+    }
+    section {
+      padding: 2em;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 1em;
+      margin: 1em;
+      display: inline-block;
+      width: 200px;
+      vertical-align: top;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .hidden {
+      display: none;
+    }
+    .form-group {
+      margin-bottom: 1em;
+    }
+    input[type="text"], input[type="number"], input[type="email"], input[type="file"] {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.5em;
+    }
+    button {
+      padding: 0.7em 1.5em;
+      background-color: #a0c4ff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #bdb2ff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cloudzz</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#about">About</a>
+      <a href="#customize">Customize</a>
+      <a href="#cart">Cart</a>
+      <a href="#order">Order</a>
+      <a href="#payment">Payment</a>
+      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome to Cloudzz</h2>
+    <p>Your dreamy store for all things cloudy and colorful!</p>
+    <button onclick="document.getElementById('catalog').scrollIntoView();">Shop Now</button>
+  </section>
+
+  <section id="catalog">
+    <h2>Catalog</h2>
+    <div id="product-list">
+      <!-- Products will be displayed here -->
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About & Policies</h2>
+    <p>Cloudzz is committed to bringing you the best products with a touch of cloud magic.</p>
+    <p>Our policies are customer-friendly and transparent.</p>
+  </section>
+
+  <section id="customize">
+    <h2>Customize Your Products</h2>
+    <form id="customize-form">
+      <div class="form-group">
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" required />
+      </div>
+      <div class="form-group">
+        <label for="product-price">Price:</label>
+        <input type="number" id="product-price" required />
+      </div>
+      <div class="form-group">
+        <label for="product-image">Image:</label>
+        <input type="file" id="product-image" accept="image/*" required />
+      </div>
+      <button type="submit">Add Product</button>
+    </form>
+  </section>
+
+  <section id="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items">
+      <!-- Cart items will appear here -->
+    </div>
+  </section>
+
+  <section id="order">
+    <h2>Order Details</h2>
+    <form id="order-form">
+      <div class="form-group">
+        <label for="customer-name">Name:</label>
+        <input type="text" id="customer-name" required />
+      </div>
+      <div class="form-group">
+        <label for="customer-email">Email:</label>
+        <input type="email" id="customer-email" required />
+      </div>
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </section>
+
+  <section id="payment">
+    <h2>Payment</h2>
+    <form id="payment-form">
+      <div class="form-group">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" required />
+      </div>
+      <div class="form-group">
+        <label for="expiry-date">Expiry Date:</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY" required />
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" required />
+      </div>
+      <button type="submit">Pay Now</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="contact-name">Name:</label>
+        <input type="text" id="contact-name" required />
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email:</label>
+        <input type="email" id="contact-email" required />
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message:</label>
+        <input type="text" id="contact-message" required />
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Q:</strong> What is Cloudzz?<br><strong>A:</strong> Cloudzz is your go-to store for dreamy and colorful products.</p>
+    <p><strong>Q:</strong> How do I customize a product?<br><strong>A:</strong> Use the Customize section to add your own products with images.</p>
+  </section>
+
+  <script>
+    const productList = document.getElementById('product-list');
+    const customizeForm = document.getElementById('customize-form');
+    const cartItems = document.getElementById('cart-items');
+    let cart = [];
+
+    customizeForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('product-name').value;
+      const price = document.getElementById('product-price').value;
+      const imageInput = document.getElementById('product-image');
+      const reader = new FileReader();
+      reader.onload = function() {
+        const product = {
+          name: name,
+          price: price,
+          image: reader.result
+        };
+        displayProduct(product);
+      };
+      reader.readAsDataURL(imageInput.files[0]);
+      customizeForm.reset();
+    });
+
+    function displayProduct(product) {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+      productDiv.innerHTML = \`
+        <img src="\${product.image}" alt="\${product.name}" />
+        <h3>\${product.name}</h3>
+        <p>Price: \$\${product.price}</p>
+        <button onclick='addToCart("\${product.name}", \${product.price})'>Add to Cart</button>
+      \`;
+      productList.appendChild(productDiv);
+    }
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.textContent = \`\${item.name} - \$\${item.price}\`;
+        cartItems.appendChild(itemDiv);
+      });
+    }
+
+    const orderForm = document.getElementById('order-form');
+    orderForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Order placed! Proceeding to payment.');
+      document.getElementById('payment').scrollIntoView();
+    });
+
+    const paymentForm = document.getElementById('payment-form');
+    paymentForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Payment successful! Thank you for shopping with Cloudzz.');
+    });
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting us!');
+      contactForm.reset();
+    });
+  </script>
+
+</body>
+</html>
